@@ -1,28 +1,14 @@
-import { getLocalStorage } from "./utils.js";
-
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-}
-
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
+import{getLocalStorage as t}from"./utils.js";function e(){const r=t("so-cart").map(c=>s(c));document.querySelector(".product-list").innerHTML=r.join("")}function s(a){return`<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
-      alt="${item.Name}"
+      src="${a.Image}"
+      alt="${a.Name}"
     />
   </a>
   <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
+    <h2 class="card__name">${a.Name}</h2>
   </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
+  <p class="cart-card__color">${a.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
-
-  return newItem;
-}
-
-renderCartContents();
+  <p class="cart-card__price">$${a.FinalPrice}</p>
+</li>`}e();
